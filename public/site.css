@@ -1,0 +1,16 @@
+body {
+    background: rgb(190, 190, 190);
+}
+
+.container {
+    background: rgb(245, 238, 238);
+}
+
+.post-thumbnail {
+    border: 1px solid #111;
+    border-radius: 1rem;
+}
+
+.post-thumbnail__title {
+    text-transform: lowercase;
+}

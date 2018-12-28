@@ -1,13 +1,22 @@
 import express from "express";
 import "reflect-metadata";
 import { router } from "./router/router";
+import { viewsRouter } from "./router/router_views";
 
 const app = express();
 
+app.set("view engine", "ejs");
+// API
 app.use(router);
+// Views
+app.use("/views",viewsRouter);
+// Static files
+app.use(express.static('public'));
 
-const server = app.listen(3000, () => {
-    console.log("listening on port 3000");
+let port = process.env.PORT || 3000
+
+const server = app.listen(port, () => {
+    console.log(`Server up and running on http://localhost:${port}`);
 });
 
 export default server;

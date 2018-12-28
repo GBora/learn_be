@@ -6,10 +6,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 require("reflect-metadata");
 const router_1 = require("./router/router");
+const router_views_1 = require("./router/router_views");
 const app = express_1.default();
+app.set("view engine", "ejs");
+// API
 app.use(router_1.router);
-const server = app.listen(3000, () => {
-    console.log("listening on port 3000");
+// Views
+app.use("/views", router_views_1.viewsRouter);
+// Static files
+app.use(express_1.default.static('public'));
+let port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
+    console.log(`Server up and running on http://localhost:${port}`);
 });
 exports.default = server;
 //# sourceMappingURL=server.js.map

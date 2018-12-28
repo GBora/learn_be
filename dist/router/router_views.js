@@ -13,19 +13,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const PostsAPI_service_1 = require("../services/PostsAPI.service");
-exports.router = express_1.default.Router();
-exports.router.get("/", (req, res) => {
+exports.viewsRouter = express_1.default.Router();
+exports.viewsRouter.get("/", (req, res) => {
     res.send("main page");
 });
-exports.router.get("/all", (req, res) => __awaiter(this, void 0, void 0, function* () {
+exports.viewsRouter.get("/all", (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         let postsService = new PostsAPI_service_1.PostsAPIService();
         let allPosts = yield postsService.getAll();
-        res.send(allPosts);
+        res.render("./pages/all", { posts: allPosts });
     }
     catch (e) {
         console.log("Error", e);
         res.sendStatus(500);
     }
 }));
-//# sourceMappingURL=router.js.map
+//# sourceMappingURL=router_views.js.map
