@@ -1,16 +1,31 @@
 body {
-    background: rgb(190, 190, 190);
+  background: #bebebe;
 }
-
 .container {
-    background: rgb(245, 238, 238);
+  background: #f5eeee;
 }
-
-.post-thumbnail {
-    border: 1px solid #111;
-    border-radius: 1rem;
+.ml-auto {
+  margin-left: auto;
 }
-
-.post-thumbnail__title {
-    text-transform: lowercase;
+.thumbnail {
+  border: 1px solid #111;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #111 !important;
+  text-decoration: none;
+}
+.thumbnail__title {
+  text-transform: lowercase;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.thumbnail__body {
+  text-transform: lowercase;
+  font-size: 1rem;
+}
+.thumbnail__image {
+  width: 100%;
+}
+.single-post-page .image {
+  width: 100%;
 }

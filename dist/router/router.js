@@ -28,4 +28,15 @@ exports.router.get("/all", (req, res) => __awaiter(this, void 0, void 0, functio
         res.sendStatus(500);
     }
 }));
+exports.router.get("/single/:id", (req, res) => __awaiter(this, void 0, void 0, function* () {
+    try {
+        let postsService = new PostsAPI_service_1.PostsAPIService();
+        let post = yield postsService.getSingle(req.params["id"]);
+        res.render("./pages/single", { post: post });
+    }
+    catch (e) {
+        console.log("Error", e);
+        res.sendStatus(500);
+    }
+}));
 //# sourceMappingURL=router.js.map

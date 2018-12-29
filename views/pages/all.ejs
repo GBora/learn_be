@@ -6,15 +6,19 @@
         <div class="row pt-5">
             <% posts.forEach(function(post) { %>
             <div class="col-4">
-                <div class="m-3 post-thumbnail">
-                    <h2 class="post-thumbnail__title">
-                        <%=  post.TITLE %>
-                    </h2>
+                <a href="/views/single/<%= post.ID %>">
+                    <div class="m-3 p-3 thumbnail">
+                        <h2 class="thumbnail__title">
+                            <%=  post.TITLE %>
+                        </h2>
 
-                    <div>
-                        <%= post.BODY %>
+                        <img src="<%= post.IMAGE %>" 
+                            alt="<%=  post.TITLE %>"
+                            class="thumbnail__image">
+
+
                     </div>
-                </div>
+                </a>
             </div>
             <% }); %>
         </div>

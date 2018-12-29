@@ -21,3 +21,16 @@ router.get("/all", async (req, res) => {
     }
 })
 
+router.get("/single/:id", async (req, res) => {
+    try {
+        let postsService: PostsAPIService = new PostsAPIService();
+        let post: Post = await postsService.getSingle(req.params["id"]);
+        res.render("./pages/single", { post: post });
+    }
+
+    catch (e) {
+        console.log("Error", e);
+        res.sendStatus(500);
+    }
+});
+

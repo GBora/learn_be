@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts-watch": "tsc -w",
     "js-watch": "nodemon dist/server.js",
+    "less-watch": "less-watch-compiler styles public",
     "start": "npm run ts-watch"
   },
   "keywords": [],
@@ -18,6 +19,8 @@
     "@types/sqlite3": "^3.1.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "less": "^3.9.0",
+    "less-watch-compiler": "^1.13.0",
     "nodemon": "^1.18.9",
     "reflect-metadata": "^0.1.12",
     "sqlite3": "^4.0.4",
