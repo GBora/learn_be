@@ -16,8 +16,6 @@ app.use(express.static('public'));
 // Body parsing for forms
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.text());
-app.use(bodyParser.raw());
 
 let port = process.env.PORT || 3000
 

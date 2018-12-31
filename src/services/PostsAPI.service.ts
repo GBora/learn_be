@@ -72,7 +72,7 @@ export class PostsAPIService implements PostsAPIInterface {
   search(query: string): Promise<Post[]> {
     return new Promise((resolve, reject) => {
       this.db.all(
-        'SELECT ID,TITLE,IMAGE FROM POSTS',
+        'SELECT * FROM POSTS',
         (err, rows) => {
           if (err) {
             Promise.reject(err.message);
@@ -80,7 +80,8 @@ export class PostsAPIService implements PostsAPIInterface {
 
           let postsList: Post[] = [];
           rows.forEach(raw => {
-            if ((<string>raw.TITLE).indexOf(query) !== -1 || (<string>raw.BODY).indexOf(query) !== -1) {
+            if ((<string>raw.TITLE).indexOf(query.toUpperCase()) !== -1 || 
+                (<string>raw.BODY).indexOf(query.toUpperCase()) !== -1) {
               postsList.push(
                 new Post(raw.ID, raw.TITLE, raw.BODY, raw.IMAGE)
               );

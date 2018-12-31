@@ -38,8 +38,14 @@ exports.viewsRouter.get("/single/:id", (req, res) => __awaiter(this, void 0, voi
         res.sendStatus(500);
     }
 }));
-exports.viewsRouter.post("/search", (req, res) => __awaiter(this, void 0, void 0, function* () {
-    console.log(req.params, req.body, req.query);
-    res.sendStatus(500);
+exports.viewsRouter.get("/search", (req, res) => __awaiter(this, void 0, void 0, function* () {
+    try {
+        let posts = yield postsService.search(req.query.search);
+        res.render("./pages/search", { posts: posts });
+    }
+    catch (e) {
+        console.log("Error", e);
+        res.sendStatus(500);
+    }
 }));
 //# sourceMappingURL=router_views.js.map

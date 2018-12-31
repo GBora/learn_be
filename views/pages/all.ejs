@@ -3,7 +3,7 @@
     <% include ../partials/head %>
 <body>
     <% include ../partials/navbar %>
-    <div class="container ">
+    <div class="container main-content">
         <div class="row py-5">
             <% posts.forEach(function(post) { %>
             <div class="col-4">
@@ -24,5 +24,6 @@
             <% }); %>
         </div>
     </div>
+    <% include ../partials/footer%>
 </body>
 </html>

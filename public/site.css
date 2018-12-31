@@ -10,6 +10,9 @@ body {
 .ml-auto {
   margin-left: auto;
 }
+.main-content {
+  min-height: calc(100vh - 15rem);
+}
 .thumbnail {
   border: 1px solid #111;
   border-radius: 1rem;
@@ -40,6 +43,16 @@ body {
 }
 .navbar .container .row {
   width: 100%;
+}
+.search-result .search-result__title {
+  text-transform: lowercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.footer {
+  width: 100%;
+  min-height: 3rem;
+  background: #b30f0f;
 }
 .single-post-page .image {
   width: 100%;

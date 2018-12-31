@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% include ../partials/head %>
+<body>
+    <% include ../partials/navbar %>
+        <div class="container main-content">
+            <div class="row py-5">
+                <% posts.forEach(function(post) { %>
+                <div class="col-12 search-result">
+                        <div class="m-3 p-3">
+                            <a href="/views/single/<%= post.ID %>">
+                                <div class="search-result__title">
+                                    <%=  post.TITLE %>
+                                </div>
+                            </a>
+
+                            <div class="search-result__body mt-3">
+                                <%= post.BODY.substring(0, 5) %> ...
+                            </div>
+                        </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    <% include ../partials/footer%>
+</body>
+</html>

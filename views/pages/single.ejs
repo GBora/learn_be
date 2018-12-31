@@ -3,25 +3,26 @@
     <% include ../partials/head %>
 <body class="single-post-page">
     <% include ../partials/navbar %>
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-12">
-                <img src="<%= post.IMAGE %>"
-                     alt="<%= post.TITLE %>"
-                     class="image">
-                <h2 class="text-center mt-5 my-3">
-                    <%= post.TITLE %>
-                </h2>
-                <div class="m-3">
-                    <%= post.BODY %>
+        <div class="container main-content">
+            <div class="row pt-5">
+                <div class="col-12">
+                    <img src="<%= post.IMAGE %>"
+                        alt="<%= post.TITLE %>"
+                        class="image">
+                    <h2 class="text-center mt-5 my-3">
+                        <%= post.TITLE %>
+                    </h2>
+                    <div class="m-3">
+                        <%= post.BODY %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="ml-auto back-link col-3">
+                    <a href="/views/all">Back to main page</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="ml-auto back-link col-3">
-                <a href="/views/all">Back to main page</a>
-            </div>
-        </div>
-    </div>
+    <% include ../partials/footer%>
 </body>
 </html>

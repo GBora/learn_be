@@ -33,8 +33,15 @@ viewsRouter.get("/single/:id", async (req, res) => {
     }
 })
 
-viewsRouter.post("/search", async (req, res) => {
-    console.log(req.params, req.body, req.query);
-    res.sendStatus(500);
+viewsRouter.get("/search", async (req, res) => {
+    try {
+      let posts: Post[] = await postsService.search(req.query.search);
+      res.render("./pages/search", { posts: posts });
+    }
+    
+    catch (e) {
+      console.log("Error", e);
+      res.sendStatus(500);
+    }
 })
 

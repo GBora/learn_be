@@ -60,13 +60,14 @@ class PostsAPIService {
     }
     search(query) {
         return new Promise((resolve, reject) => {
-            this.db.all('SELECT ID,TITLE,IMAGE FROM POSTS', (err, rows) => {
+            this.db.all('SELECT * FROM POSTS', (err, rows) => {
                 if (err) {
                     Promise.reject(err.message);
                 }
                 let postsList = [];
                 rows.forEach(raw => {
-                    if (raw.TITLE.indexOf(query) !== -1 || raw.BODY.indexOf(query) !== -1) {
+                    if (raw.TITLE.indexOf(query.toUpperCase()) !== -1 ||
+                        raw.BODY.indexOf(query.toUpperCase()) !== -1) {
                         postsList.push(new post_model_1.Post(raw.ID, raw.TITLE, raw.BODY, raw.IMAGE));
                     }
                 });
