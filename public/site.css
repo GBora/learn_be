@@ -1,3 +1,6 @@
+html {
+  font-size: 18px;
+}
 body {
   background: #bebebe;
 }
@@ -24,6 +27,18 @@ body {
   font-size: 1rem;
 }
 .thumbnail__image {
+  width: 100%;
+  border-radius: 1rem;
+}
+.navbar {
+  width: 100%;
+  min-height: 3rem;
+  background: #b30f0f;
+}
+.navbar .container {
+  background: transparent;
+}
+.navbar .container .row {
   width: 100%;
 }
 .single-post-page .image {

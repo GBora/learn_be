@@ -14,12 +14,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const PostsAPI_service_1 = require("../services/PostsAPI.service");
 exports.viewsRouter = express_1.default.Router();
+let postsService = new PostsAPI_service_1.PostsAPIService();
 exports.viewsRouter.get("/", (req, res) => {
     res.send("main page");
 });
 exports.viewsRouter.get("/all", (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
-        let postsService = new PostsAPI_service_1.PostsAPIService();
         let allPosts = yield postsService.getAll();
         res.render("./pages/all", { posts: allPosts });
     }
@@ -30,7 +30,6 @@ exports.viewsRouter.get("/all", (req, res) => __awaiter(this, void 0, void 0, fu
 }));
 exports.viewsRouter.get("/single/:id", (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
-        let postsService = new PostsAPI_service_1.PostsAPIService();
         let post = yield postsService.getSingle(req.params["id"]);
         res.render("./pages/single", { post: post });
     }
@@ -38,5 +37,9 @@ exports.viewsRouter.get("/single/:id", (req, res) => __awaiter(this, void 0, voi
         console.log("Error", e);
         res.sendStatus(500);
     }
+}));
+exports.viewsRouter.post("/search", (req, res) => __awaiter(this, void 0, void 0, function* () {
+    console.log(req.params, req.body, req.query);
+    res.sendStatus(500);
 }));
 //# sourceMappingURL=router_views.js.map

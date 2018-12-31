@@ -3,6 +3,7 @@ import express from 'express';
 import { PostsAPIService } from '../services/PostsAPI.service';
 
 export let viewsRouter = express.Router();
+let postsService: PostsAPIService = new PostsAPIService();
 
 viewsRouter.get("/", (req, res) => {
     res.send("main page");
@@ -10,7 +11,6 @@ viewsRouter.get("/", (req, res) => {
 
 viewsRouter.get("/all", async (req, res) => {
     try {
-        let postsService: PostsAPIService = new PostsAPIService();
         let allPosts: Post[] = await postsService.getAll();
         res.render("./pages/all", {posts: allPosts});
     }
@@ -23,7 +23,6 @@ viewsRouter.get("/all", async (req, res) => {
 
 viewsRouter.get("/single/:id", async (req, res) => {
     try {
-        let postsService: PostsAPIService = new PostsAPIService();
         let post: Post = await postsService.getSingle(req.params["id"]);
         res.render("./pages/single", {post: post});
     }
@@ -32,5 +31,10 @@ viewsRouter.get("/single/:id", async (req, res) => {
         console.log("Error", e);
         res.sendStatus(500);
     }
+})
+
+viewsRouter.post("/search", async (req, res) => {
+    console.log(req.params, req.body, req.query);
+    res.sendStatus(500);
 })
 
